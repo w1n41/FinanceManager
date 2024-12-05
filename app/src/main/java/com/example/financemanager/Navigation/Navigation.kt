@@ -1,6 +1,5 @@
 package com.example.financemanager.Navigation
 
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -15,26 +14,26 @@ import com.example.financemanager.Screens.MenuScreen
 fun Navigation(
     modifier: Modifier,
     navigationController: NavHostController,
-    viewModel: FinanceManagerViewModel
+    viewModel: FinanceManagerViewModel,
 ) {
     NavHost(
         modifier = modifier,
         navController = navigationController,
         startDestination = Graph.MAIN_SCREEN
     ) {
-        composable(route = Graph.MAIN_SCREEN){
+        composable(Graph.MAIN_SCREEN) {
             MainScreen(navigationController, viewModel)
         }
-        composable(route = Graph.ACCOUNT_SCREEN){
+        composable(route = Graph.ACCOUNT_SCREEN) {
             AccountScreen(navigationController, viewModel)
         }
-        composable(route = Graph.MENU_SCREEN){
+        composable(route = Graph.MENU_SCREEN) {
             MenuScreen(navigationController, viewModel)
         }
     }
 }
 
-object Graph{
+object Graph {
     const val MAIN_SCREEN = "MainScreen"
     const val ACCOUNT_SCREEN = "AccountScreen"
     const val MENU_SCREEN = "MenuScreen"
