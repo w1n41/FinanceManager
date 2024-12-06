@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.financemanager.financeManagerViewModel.FinanceManagerViewModel
 import com.example.financemanager.navigation.Graph
 import com.example.financemanager.ui.theme.DarkColorScheme
 
@@ -34,7 +33,7 @@ import com.example.financemanager.ui.theme.DarkColorScheme
     "StateFlowValueCalledInComposition"
 )
 @Composable
-fun MainScreen(navHostController: NavHostController,viewModel: FinanceManagerViewModel) {
+fun MainScreen(navHostController: NavHostController) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -48,76 +47,84 @@ fun MainScreen(navHostController: NavHostController,viewModel: FinanceManagerVie
                 }
             )
         },
+        content = { _ ->
+
+        },
         bottomBar = {
-            BottomAppBar(
-                actions = {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(top = 10.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        IconButton(
-                            onClick = {
-                                navHostController.navigate(Graph.MENU_SCREEN)
-                            },
-                            modifier = Modifier
-                                .shadow(elevation = 20.dp, CircleShape)
-                        ) {
-                            Icon(
-                                modifier = Modifier
-                                    .background(
-                                        color = DarkColorScheme.tertiary,
-                                        shape = CircleShape
-                                    )
-                                    .padding(5.dp)
-                                    .align(Alignment.CenterVertically),
-
-                                imageVector = Icons.Rounded.Menu,
-                                contentDescription = ""
-                            )
-                        }
-                        IconButton(
-                            onClick = {},
-                            modifier = Modifier
-                                .shadow(elevation = 20.dp, CircleShape)
-                        ) {
-                            Icon(
-                                modifier = Modifier
-                                    .background(
-                                        color = DarkColorScheme.tertiary,
-                                        shape = CircleShape
-                                    )
-                                    .padding(5.dp)
-                                    .align(Alignment.CenterVertically),
-
-                                imageVector = Icons.Default.Home,
-                                contentDescription = "Home page"
-                            )
-                        }
-                        IconButton(
-                            onClick = {
-                                navHostController.navigate(Graph.ACCOUNT_SCREEN)
-                            },
-                            modifier = Modifier
-                                .shadow(elevation = 20.dp, CircleShape)
-                        ) {
-                            Icon(
-                                modifier = Modifier
-                                    .background(
-                                        color = DarkColorScheme.tertiary,
-                                        shape = CircleShape
-                                    )
-                                    .padding(5.dp)
-                                    .align(Alignment.CenterVertically),
-
-                                imageVector = Icons.Default.Person,
-                                contentDescription = "Profile",
-                            )
-                        }
-                    }
-                }
-            )
+            BottomAppBarMainScreen(navHostController)
         }
-    ) {}
+    )
+}
+
+@Composable
+fun BottomAppBarMainScreen(navHostController: NavHostController) {
+    BottomAppBar(
+        actions = {
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 10.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = {
+                        navHostController.navigate(Graph.MENU_SCREEN)
+                    },
+                    modifier = Modifier
+                        .shadow(elevation = 20.dp, CircleShape)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .background(
+                                color = DarkColorScheme.tertiary,
+                                shape = CircleShape
+                            )
+                            .padding(5.dp)
+                            .align(Alignment.CenterVertically),
+
+                        imageVector = Icons.Rounded.Menu,
+                        contentDescription = ""
+                    )
+                }
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .shadow(elevation = 20.dp, CircleShape)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .background(
+                                color = DarkColorScheme.tertiary,
+                                shape = CircleShape
+                            )
+                            .padding(5.dp)
+                            .align(Alignment.CenterVertically),
+
+                        imageVector = Icons.Default.Home,
+                        contentDescription = "Home page"
+                    )
+                }
+                IconButton(
+                    onClick = {
+                        navHostController.navigate(Graph.ACCOUNT_SCREEN)
+                    },
+                    modifier = Modifier
+                        .shadow(elevation = 20.dp, CircleShape)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .background(
+                                color = DarkColorScheme.tertiary,
+                                shape = CircleShape
+                            )
+                            .padding(5.dp)
+                            .align(Alignment.CenterVertically),
+
+                        imageVector = Icons.Default.Person,
+                        contentDescription = "Profile",
+                    )
+                }
+            }
+        }
+    )
 }

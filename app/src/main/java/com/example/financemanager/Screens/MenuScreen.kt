@@ -32,7 +32,6 @@ import com.example.financemanager.financeManagerViewModel.FinanceManagerViewMode
 import com.example.financemanager.navigation.Graph
 import com.example.financemanager.ui.theme.DarkColorScheme
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MenuScreen(navHostController: NavHostController, viewModel: FinanceManagerViewModel){
@@ -45,138 +44,146 @@ fun MenuScreen(navHostController: NavHostController, viewModel: FinanceManagerVi
                     title = { Text("Menu") }
                 )
             },
+            content = { innerPadding ->
+                MainContentMenuScreen(Modifier.padding(innerPadding))
+            },
             bottomBar = {
+                BottomAppBarMenuScreen(navHostController)
+            }
+        )
+    }
+}
 
-
-                BottomAppBar(
-                    modifier = Modifier,
-                    actions = {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(top = 10.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            IconButton(
-                                onClick = {},
-                                modifier = Modifier
-                                    .shadow(elevation = 20.dp, CircleShape)
-                            ) {
-                                Icon(
-                                    modifier = Modifier
-                                        .background(
-                                            color = DarkColorScheme.tertiary,
-                                            shape = CircleShape
-                                        )
-                                        .padding(5.dp)
-                                        .align(Alignment.CenterVertically),
-
-                                    imageVector = Icons.Rounded.Menu,
-                                    contentDescription = ""
-                                )
-                            }
-                            IconButton(
-                                onClick = {
-                                    navHostController.navigate(Graph.MAIN_SCREEN)
-                                },
-                                modifier = Modifier
-                                    .shadow(elevation = 20.dp, CircleShape)
-                            ) {
-                                Icon(
-                                    modifier = Modifier
-                                        .background(
-                                            color = DarkColorScheme.tertiary,
-                                            shape = CircleShape
-                                        )
-                                        .padding(5.dp)
-                                        .align(Alignment.CenterVertically),
-
-                                    imageVector = Icons.Default.Home,
-                                    contentDescription = "Home page"
-                                )
-                            }
-                            IconButton(
-                                onClick = {
-                                    navHostController.navigate(Graph.ACCOUNT_SCREEN)
-                                },
-                                modifier = Modifier
-                                    .shadow(elevation = 20.dp, CircleShape)
-                            ) {
-                                Icon(
-                                    modifier = Modifier
-                                        .background(
-                                            color = DarkColorScheme.tertiary,
-                                            shape = CircleShape
-                                        )
-                                        .padding(5.dp)
-                                        .align(Alignment.CenterVertically),
-
-                                    imageVector = Icons.Default.Person,
-                                    contentDescription = "Profile"
-                                )
-                            }
-                        }
-                    }
+@Composable
+fun MainContentMenuScreen(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Card(modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+            .height(75.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxSize(),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    modifier = Modifier.padding(10.dp),
+                    text = "testCard1"
                 )
             }
-        ){innerPadding ->
-            Column(
-                modifier = Modifier
-                    .padding(innerPadding)
-                    .fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
+        }
+        Card(modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+            .height(75.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxSize(),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Card(modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(10.dp)
-                    .height(75.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxSize(),
-                        horizontalArrangement = Arrangement.Start,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            modifier = Modifier.padding(10.dp),
-                            text = "testCard1"
-                        )
-                    }
-                }
-                Card(modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(10.dp)
-                    .height(75.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxSize(),
-                        horizontalArrangement = Arrangement.Start,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            modifier = Modifier.padding(10.dp),
-                            text = "testCard2"
-                        )
-                    }
-                }
-                Card(modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(10.dp)
-                    .height(75.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxSize(),
-                        horizontalArrangement = Arrangement.Start,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            modifier = Modifier.padding(10.dp),
-                            text = "testCard3"
-                        )
-                    }
-                }
+                Text(
+                    modifier = Modifier.padding(10.dp),
+                    text = "testCard2"
+                )
+            }
+        }
+        Card(modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+            .height(75.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxSize(),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    modifier = Modifier.padding(10.dp),
+                    text = "testCard3"
+                )
             }
         }
     }
+}
+
+@Composable
+fun BottomAppBarMenuScreen(navHostController: NavHostController) {
+    BottomAppBar(
+        modifier = Modifier,
+        actions = {
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 10.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .shadow(elevation = 20.dp, CircleShape)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .background(
+                                color = DarkColorScheme.tertiary,
+                                shape = CircleShape
+                            )
+                            .padding(5.dp)
+                            .align(Alignment.CenterVertically),
+
+                        imageVector = Icons.Rounded.Menu,
+                        contentDescription = ""
+                    )
+                }
+                IconButton(
+                    onClick = {
+                        navHostController.navigate(Graph.MAIN_SCREEN)
+                    },
+                    modifier = Modifier
+                        .shadow(elevation = 20.dp, CircleShape)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .background(
+                                color = DarkColorScheme.tertiary,
+                                shape = CircleShape
+                            )
+                            .padding(5.dp)
+                            .align(Alignment.CenterVertically),
+
+                        imageVector = Icons.Default.Home,
+                        contentDescription = "Home page"
+                    )
+                }
+                IconButton(
+                    onClick = {
+                        navHostController.navigate(Graph.ACCOUNT_SCREEN)
+                    },
+                    modifier = Modifier
+                        .shadow(elevation = 20.dp, CircleShape)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .background(
+                                color = DarkColorScheme.tertiary,
+                                shape = CircleShape
+                            )
+                            .padding(5.dp)
+                            .align(Alignment.CenterVertically),
+
+                        imageVector = Icons.Default.Person,
+                        contentDescription = "Profile"
+                    )
+                }
+            }
+        }
+    )
 }
 
 
