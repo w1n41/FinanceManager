@@ -1,3 +1,3 @@
-package com.example.financemanager.Screens
+package com.example.financemanager.screens
 
 

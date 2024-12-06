@@ -1,14 +1,14 @@
-package com.example.financemanager.Navigation
+package com.example.financemanager.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.financemanager.FinanceManagerViewModel.FinanceManagerViewModel
-import com.example.financemanager.Screens.AccountScreen
-import com.example.financemanager.Screens.MainScreen
-import com.example.financemanager.Screens.MenuScreen
+import com.example.financemanager.financeManagerViewModel.FinanceManagerViewModel
+import com.example.financemanager.screens.AccountScreen
+import com.example.financemanager.screens.MainScreen
+import com.example.financemanager.screens.MenuScreen
 
 @Composable
 fun Navigation(

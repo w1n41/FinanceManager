@@ -1,6 +1,5 @@
-package com.example.financemanager.Screens
+package com.example.financemanager.screens
 
-import android.R
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -27,11 +26,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.financemanager.FinanceManagerViewModel.FinanceManagerViewModel
-import com.example.financemanager.Navigation.Graph
+import com.example.financemanager.financeManagerViewModel.FinanceManagerViewModel
+import com.example.financemanager.navigation.Graph
+import com.example.financemanager.ui.theme.DarkColorScheme
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -66,7 +65,7 @@ fun MenuScreen(navHostController: NavHostController, viewModel: FinanceManagerVi
                                 Icon(
                                     modifier = Modifier
                                         .background(
-                                            color = colorResource(R.color.white),
+                                            color = DarkColorScheme.tertiary,
                                             shape = CircleShape
                                         )
                                         .padding(5.dp)
@@ -86,7 +85,7 @@ fun MenuScreen(navHostController: NavHostController, viewModel: FinanceManagerVi
                                 Icon(
                                     modifier = Modifier
                                         .background(
-                                            color = colorResource(R.color.white),
+                                            color = DarkColorScheme.tertiary,
                                             shape = CircleShape
                                         )
                                         .padding(5.dp)
@@ -106,7 +105,7 @@ fun MenuScreen(navHostController: NavHostController, viewModel: FinanceManagerVi
                                 Icon(
                                     modifier = Modifier
                                         .background(
-                                            color = colorResource(R.color.white),
+                                            color = DarkColorScheme.tertiary,
                                             shape = CircleShape
                                         )
                                         .padding(5.dp)

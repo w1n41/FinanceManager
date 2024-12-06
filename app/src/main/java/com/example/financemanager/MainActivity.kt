@@ -8,16 +8,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.example.financemanager.FinanceManagerViewModel.FinanceManagerViewModel
-import com.example.financemanager.Navigation.Navigation
+import com.example.financemanager.financeManagerViewModel.FinanceManagerViewModel
+import com.example.financemanager.navigation.Navigation
 import com.example.financemanager.ui.theme.FinanceManagerTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
-            FinanceManagerTheme {
+        setContent{
+            FinanceManagerTheme(darkTheme = true) {
                 val navHostController = rememberNavController()
                 Scaffold { padding ->
                     Navigation(modifier = Modifier.padding(padding), navigationController = navHostController, viewModel = FinanceManagerViewModel())
